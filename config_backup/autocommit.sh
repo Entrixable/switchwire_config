@@ -70,17 +70,17 @@ grab_version(){
 
 # Here we dump stats database to text format for backup, IF the right software is found
 # To RESTORE the database, use the following command:
-# mdb_load -f ~/printer_data/config/data.mdb.backup -s -T ~/printer_data/database/
+# mdb_load -f ~/printer_data/config/config_backup/data.mdb.backup -s -T ~/printer_data/database/
 
 if command -v /usr/bin/mdb_dump &> /dev/null
 then
     if $history_only
     then
         echo "mdb_dump found! Exporting history table from data.mdb to ~/printer_data/config/data.mdb.backup"
-        mdb_dump -s history -n ~/printer_data/database/data.mdb -f ~/printer_data/config/data.mdb.backup
+        mdb_dump -s history -n ~/printer_data/database/data.mdb -f ~/printer_data/config/config_backup/data.mdb.backup
     else
         echo "mdb_dump found! Exporting ALL tables data.mdb to ~/printer_data/config/data.mdb.backup"
-        mdb_dump -a -n ~/printer_data/database/data.mdb -f ~/printer_data/config/data.mdb.backup
+        mdb_dump -a -n ~/printer_data/database/data.mdb -f ~/printer_data/config/config_backup/data.mdb.backup
     fi
 else
     echo "mdb_dump not found! Consider installing it via 'sudo apt install lmdb-utils' if you want to back up your statistics database!"
