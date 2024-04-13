@@ -76,10 +76,10 @@ if command -v /usr/bin/mdb_dump &> /dev/null
 then
     if $history_only
     then
-        echo "mdb_dump found! Exporting history table from data.mdb to ~/printer_data/config/data.mdb.backup"
+        echo "mdb_dump found! Exporting history table from data.mdb to ~/printer_data/config/config_backup/data.mdb.backup"
         mdb_dump -s history -n ~/printer_data/database/data.mdb -f ~/printer_data/config/config_backup/data.mdb.backup
     else
-        echo "mdb_dump found! Exporting ALL tables data.mdb to ~/printer_data/config/data.mdb.backup"
+        echo "mdb_dump found! Exporting ALL tables data.mdb to ~/printer_data/config/config_backup/data.mdb.backup"
         mdb_dump -a -n ~/printer_data/database/data.mdb -f ~/printer_data/config/config_backup/data.mdb.backup
     fi
 else
